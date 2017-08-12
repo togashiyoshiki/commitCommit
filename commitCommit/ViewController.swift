@@ -11,9 +11,14 @@ import GoogleMobileAds
 
 class ViewController: UIViewController,GADBannerViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
     
+//    コミットを追加するテキストフィールド
+    @IBOutlet weak var addTextField: UITextField!
+    
     ///    detaを配列で使用する
     var commitList = ["勉強","仕事","趣味"]
     
+//    セグエで飛ばすための配列
+    var commitSegue:String = "勉強"
     
     ///じぶんのAdMobIDを指定指定します
     let AdMobID = "ca-app-pub-3530000000000000/0123456789"
@@ -26,30 +31,49 @@ class ViewController: UIViewController,GADBannerViewDelegate,UIPickerViewDataSou
     
     //    ピッカービューの列数を決定する。メソッド追加
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+   
         return 1
     }
     //    ピッカービューの行数を決定する。メソッド追加
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         //        配列の要素の個数と同じ数を指定
-        return commitList.count
+                return commitList.count
     }
     //    ピッカービューに表示する文字の設定。　メソッド追加
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //        teaList[0]　ダージリン
-        //        teaList[1]     アールグレイ
         
         //rowの中に配列が入ります。
+        
         return commitList[row]
         
     }
     //    ピッカービューが選択された時に発動
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //        ユー pザが選んだ時にデバックエリアに選んだものを表示します。
+        //        ユー ザが選んだ時にデバックエリアに選んだものを表示します。
+        
+        
         print(commitList[row])
+//        配列を変数に代入
+        commitSegue = commitList[row]
     }
     
     
+//    コミットをする
+    @IBAction func addCommit(_ sender: UIButton) {
+         performSegue(withIdentifier: "Segue3", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        guestの中身segueに飛んだSecondViewControllerクラスの継承している
+        if (segue.identifier == "Segue3") {
+            let guest = segue.destination as! addCommitViewController
+            
+            ///項目
+            guest.item = commitSegue
+            
+        }
+    }
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()

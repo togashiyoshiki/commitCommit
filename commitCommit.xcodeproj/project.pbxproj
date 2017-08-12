@@ -28,6 +28,7 @@
 		C31C374F1F38372300180897 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31C374E1F38372300180897 /* GoogleMobileAds.framework */; };
 		C369BD871F39803A00BF22E8 /* oneDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369BD861F39803A00BF22E8 /* oneDayViewController.swift */; };
 		C369BD891F39806000BF22E8 /* CommitViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369BD881F39806000BF22E8 /* CommitViewViewController.swift */; };
+		C369BDC51F3EE3AF00BF22E8 /* addCommitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369BDC41F3EE3AF00BF22E8 /* addCommitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		C31C374E1F38372300180897 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		C369BD861F39803A00BF22E8 /* oneDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneDayViewController.swift; sourceTree = "<group>"; };
 		C369BD881F39806000BF22E8 /* CommitViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitViewViewController.swift; sourceTree = "<group>"; };
+		C369BDC41F3EE3AF00BF22E8 /* addCommitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addCommitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		C31C36F01F38317900180897 = {
 			isa = PBXGroup;
 			children = (
+				C369BDC41F3EE3AF00BF22E8 /* addCommitViewController.swift */,
 				C31C374D1F38372300180897 /* GoogleMobileAdsSdkiOS-7.21.0 */,
 				C31C36FB1F38317900180897 /* commitCommit */,
 				C31C37131F38317900180897 /* commitCommitTests */,
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C369BD891F39806000BF22E8 /* CommitViewViewController.swift in Sources */,
+				C369BDC51F3EE3AF00BF22E8 /* addCommitViewController.swift in Sources */,
 				C31C37051F38317900180897 /* commitCommit.xcdatamodeld in Sources */,
 				C369BD871F39803A00BF22E8 /* oneDayViewController.swift in Sources */,
 				C31C36FF1F38317900180897 /* ViewController.swift in Sources */,
