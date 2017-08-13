@@ -46,34 +46,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3h-5S-nQ4">
-                                <rect key="frame" x="0.0" y="382" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="357" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ストップ"/>
                                 <connections>
                                     <action selector="tapStop" destination="sO4-gc-cd1" eventType="touchUpInside" id="qlf-yd-C0H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ln1-HU-OIZ">
-                                <rect key="frame" x="0.0" y="474" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="tapReset" destination="sO4-gc-cd1" eventType="touchUpInside" id="QM4-9N-pnu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrF-Fx-hpp">
-                                <rect key="frame" x="0.0" y="256" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="284" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="スタート"/>
                                 <connections>
                                     <action selector="tapStart" destination="sO4-gc-cd1" eventType="touchUpInside" id="frD-k5-t4Y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mp-SO-xUF">
+                                <rect key="frame" x="0.0" y="439" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="リセット"/>
+                                <connections>
+                                    <action selector="tapReset" destination="sO4-gc-cd1" eventType="touchUpInside" id="vv7-Op-1XF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egv-mG-LgN">
+                                <rect key="frame" x="328" y="20" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="addBtn:" destination="gKy-Y0-QqM" eventType="touchUpInside" id="OtE-o8-dHb"/>
+                                    <action selector="addBtn:" destination="sO4-gc-cd1" eventType="touchUpInside" id="UJp-hV-vgv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="buttonReset" destination="ln1-HU-OIZ" id="2MJ-Tp-ngR"/>
+                        <outlet property="buttonReset" destination="8Mp-SO-xUF" id="t0Y-r0-OLd"/>
                         <outlet property="buttonStart" destination="RrF-Fx-hpp" id="htd-G8-c4F"/>
                         <outlet property="buttonStop" destination="L3h-5S-nQ4" id="dm2-Q0-txe"/>
                         <outlet property="labelTimer" destination="bt3-Yw-hlZ" id="4FO-S6-yaa"/>
@@ -648,8 +657,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUm-D5-rUm">
-                                <rect key="frame" x="321" y="17" width="31" height="30"/>
-                                <state key="normal" title="保存"/>
+                                <rect key="frame" x="306" y="17" width="46" height="30"/>
+                                <state key="normal" title="確認へ"/>
                                 <connections>
                                     <action selector="addBtn:" destination="gKy-Y0-QqM" eventType="touchUpInside" id="hRh-rW-rAa"/>
                                 </connections>

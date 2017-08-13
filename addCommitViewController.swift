@@ -68,9 +68,25 @@ class addCommitViewController: UIViewController {
     @IBAction func tapReset() {
         // 経過時間、ラベルを初期化する
         elapsedTime = 0.0
-        labelTimer.text = "00:00:00.00"
+        labelTimer.text = "00:00.00"
     }
     
+//    コアデータに保存する処理
+    @IBAction func addBtn(_ sender: UIButton) {
+        var time1 = Date()
+
+        // context(データベースを扱うのに必要)を定義。
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        // taskにTask(データベースのエンティティです)型オブジェクトを代入します。
+        let timeMg = TimeMg(context: context)
+        
+        timeMg.nowTime = time1 as NSDate
+        timeMg.tagetTime = elapsedTime
+    
+               // 上で作成したデータをデータベースに保存します。
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     
