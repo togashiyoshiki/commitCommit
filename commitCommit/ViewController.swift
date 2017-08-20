@@ -16,14 +16,10 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
     @IBOutlet weak var addTextField: UITextField!
     
     ///    detaを配列で使用する
-    var commitList = ["勉強","仕事","趣味"]
     var titText:String = ""
-    
-    var arrayList = ["hoge","hgoehgoe","gdsa"]
-    
-    
-//    セグエで飛ばすための配列
-    var commitSegue:String = "勉強"
+    var arrayList:[String] = [""]
+    var now:[NSDate] = []
+    var targettime:[Double] = []
     
     ///じぶんのAdMobIDを指定指定します
     let AdMobID = "ca-app-pub-3530000000000000/0123456789"
@@ -33,7 +29,8 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
     let AdMobTest:Bool = true
     let SimulatorTest:Bool = true
     
-         
+    
+    @IBOutlet weak var TableView: UITableView!
     
 //    コミットをする
     @IBAction func addCommit(_ sender: UIButton) {
@@ -41,21 +38,29 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
         addTextField.placeholder = "コミットタイトルを入力してください"
         }else{
          performSegue(withIdentifier: "Segue3", sender: nil)
-        
         }
     }
+    
+    //    セグエの設定　設定したセグエの名前を記入
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        どこのセグのどの値をと聞いている↓
+        performSegue(withIdentifier: "Segue4", sender: indexPath.row)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //        guestの中身segueに飛んだSecondViewControllerクラスの継承している
         if (segue.identifier == "Segue3") {
             let guest = segue.destination as! addCommitViewController
             titText = addTextField.text!
-            
             ///項目
-            guest.item = commitSegue
             guest.tit = titText
+        }else if (segue.identifier == "Segue4") {
+            let guest = segue.destination as! addCommitViewController
+             guest.tit = titText
+            guest.targetTimeDeta = targettime[sender! as! Int]
         }
     }
-   
+    
     //    ⑵行数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -69,7 +74,6 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
         //        表示したい文字の設定
         
           cell.textLabel?.text = arrayList[indexPath.row]
-        
             return cell
     }
     
@@ -81,6 +85,7 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
         //広告を表示するメソッドを呼び出す
         showAdBanner()
         read()
+        
     }
     
     
@@ -122,28 +127,20 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
                 print("device")
             }
         }
-        
         //リクエストのロード
         admobView.load(admobRequest)
         //バナーを画面に追加
         self.view.addSubview(admobView)
-        
     }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     //    データを取ります。
     func read(){
         //        カラの配列を用意します。
-//        myTitle = []
-//        myDetail = []
-//        myDeta = []
-//        myImage = []
+        arrayList = []
+        
         //        AppDelegateを使う準備
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //        エンティティを操作するためのオブジェクト
@@ -157,18 +154,28 @@ class ViewController: UIViewController,GADBannerViewDelegate,UITableViewDelegate
             let fetchResults = try viewContext.fetch(query)
             //            データの取得
             for result: AnyObject in fetchResults {
-
-                
                 let nowTime :NSDate! = result.value(forKey: "nowTime") as! NSDate
-                let tagetTime = result.value(forKey: "tagetTime")
+                let tagetTime = result.value(forKey: "tagetTime") as! Double
+                let nameTitle = result.value(forKey: "titleName")
+                let time = result.value(forKey: "nowTime")
                 
-                 let str: String = String("\(tagetTime)")
+                arrayList.append(nameTitle as! String)
+                targettime.append(tagetTime)
+                now.append(time as! NSDate)
                 
-                arrayList.append(str)
             }
         }catch{
         }
     }
     
+    
+                    
+                
+            
+                    
+    override func viewWillAppear(_ animated: Bool) {
+        read()
+       TableView.reloadData()
+    }
 }
 

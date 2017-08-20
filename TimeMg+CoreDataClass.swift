@@ -2,7 +2,7 @@
 //  TimeMg+CoreDataClass.swift
 //  commitCommit
 //
-//  Created by togashi yoshiki on 2017/08/14.
+//  Created by togashi yoshiki on 2017/08/20.
 //  Copyright © 2017年 Yoshiki Togashi. All rights reserved.
 //
 

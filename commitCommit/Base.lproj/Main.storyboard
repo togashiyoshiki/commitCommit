@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aga-S9-kMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-804.64767616191909"/>
+            <point key="canvasLocation" x="1172" y="-1173"/>
         </scene>
         <!--コミコミ-->
         <scene sceneID="tne-QT-ifu">
@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-0U-hQ2">
-                                <rect key="frame" x="88" y="72" width="199" height="30"/>
+                                <rect key="frame" x="88" y="90" width="199" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="一日スケジュールを確認する"/>
                                 <connections>
@@ -132,33 +132,35 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pA5-tf-Mgo"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コミット名を入力してください。" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thU-Sx-hnI">
-                                <rect key="frame" x="0.0" y="116" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iot-wL-5dz">
-                                <rect key="frame" x="113" y="154" width="149" height="150"/>
+                                <rect key="frame" x="113" y="233" width="149" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="コミットする"/>
                                 <connections>
                                     <action selector="addCommit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XFC-8a-2By"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コミット名を入力してください。" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thU-Sx-hnI">
+                                <rect key="frame" x="0.0" y="203" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="コミコミ" id="LzN-k7-ZNy"/>
                     <connections>
+                        <outlet property="TableView" destination="Oki-iY-3Zh" id="v4o-lT-0KA"/>
                         <outlet property="addTextField" destination="thU-Sx-hnI" id="bPa-jn-EKP"/>
                         <segue destination="sO4-gc-cd1" kind="showDetail" identifier="Segue3" id="4Oe-E2-5PG"/>
+                        <segue destination="sO4-gc-cd1" kind="showDetail" identifier="Segue4" id="9J7-H1-rjz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253.59999999999999" y="-170.46476761619192"/>
+            <point key="canvasLocation" x="430" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cl6-pi-lKR">
@@ -1058,5 +1060,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="w2C-9v-X1N"/>
+        <segue reference="9J7-H1-rjz"/>
     </inferredMetricsTieBreakers>
 </document>

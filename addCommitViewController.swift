@@ -20,7 +20,7 @@ class addCommitViewController: UIViewController,GADBannerViewDelegate {
     let SimulatorTest:Bool = true
     
     
-    @IBOutlet weak var myCommitLabel: UILabel!
+    
     @IBOutlet weak var mytit: UILabel!
     
     
@@ -28,6 +28,8 @@ class addCommitViewController: UIViewController,GADBannerViewDelegate {
     var startTime: TimeInterval = 0     // Startボタンを押した時刻
     var elapsedTime: Double = 0.0       // Stopボタンを押した時点で経過していた時間
     var time : Double = 0.0             // ラベルに表示する時間
+    
+    var targetTimeDeta :Double = 0.0
     
     @IBOutlet weak var labelTimer: UILabel!     // タイムを表示するラベル
     @IBOutlet weak var buttonStart: UIButton!   // Startボタン
@@ -82,6 +84,10 @@ class addCommitViewController: UIViewController,GADBannerViewDelegate {
     
 //    コアデータに保存する処理
     @IBAction func addBtn(_ sender: UIButton) {
+        if elapsedTime < 1 {
+            
+        }else{
+        
         var time1 = Date()
 
         // context(データベースを扱うのに必要)を定義。
@@ -91,10 +97,12 @@ class addCommitViewController: UIViewController,GADBannerViewDelegate {
         
         timeMg.nowTime = time1 as NSDate
         timeMg.tagetTime = elapsedTime
+        timeMg.titleName = tit
     
                // 上で作成したデータをデータベースに保存します。
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         self.dismiss(animated: true, completion: nil)
+    }
     }
     
     
@@ -118,7 +126,9 @@ class addCommitViewController: UIViewController,GADBannerViewDelegate {
         
         //広告を表示するメソッドを呼び出す
         showAdBanner()
-
+        
+       labelTimer.text = String(targetTimeDeta)
+        
     }
 
     //広告を表示するfunc

@@ -2,7 +2,7 @@
 //  TimeMg+CoreDataProperties.swift
 //  commitCommit
 //
-//  Created by togashi yoshiki on 2017/08/14.
+//  Created by togashi yoshiki on 2017/08/20.
 //  Copyright © 2017年 Yoshiki Togashi. All rights reserved.
 //
 
@@ -18,5 +18,6 @@ extension TimeMg {
 
     @NSManaged public var nowTime: NSDate?
     @NSManaged public var tagetTime: Double
+    @NSManaged public var titleName: String?
 
 }
